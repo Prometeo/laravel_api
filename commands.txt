@@ -6,3 +6,9 @@ php artisan make:migration create_category_product_table --> intermediate table
 php artisan tinker -----> \Hash::make('api-key');
 "$2y$10$yuIoHmTuABkrBHoUydd98On5qoC554Jc1vcDStfomuypfvlJ9Snn6"
  php artisan make:middleware VerifyAccessKey --> middleware to validate accesskey
+
+
+
+/// To auth token
+composer require laravel/ui
+npm install && npm run dev"

@@ -2,3 +2,7 @@ php artisan make:model Product --all
 php artisan make:model Transaction --all
 php artisan make:controller UserController -m User
 php artisan make:migration create_category_product_table --> intermediate table
+
+php artisan tinker -----> \Hash::make('api-key');
+"$2y$10$yuIoHmTuABkrBHoUydd98On5qoC554Jc1vcDStfomuypfvlJ9Snn6"
+ php artisan make:middleware VerifyAccessKey --> middleware to validate accesskey

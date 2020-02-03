@@ -35,7 +35,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create($request->all());
+        return['created'=> true];
     }
 
     /**
@@ -46,7 +47,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return User::find($id);
     }
 
     /**
@@ -69,7 +70,9 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user = User::find($id);
+        $user->update($request->all());
+        return['update' => true];
     }
 
     /**
@@ -80,6 +83,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        return User::destroy($id);
+        return['deleted' => true];
     }
 }

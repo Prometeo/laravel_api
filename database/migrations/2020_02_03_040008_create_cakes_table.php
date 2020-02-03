@@ -16,7 +16,7 @@ class CreateCakesTable extends Migration
         Schema::create('cakes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('code');
-            $table->string('name');
+            $table->string('name', 50);
             $table->string('description');
             $table->integer('brand_id'); // foreign key
             $table->timestamps();

@@ -35,8 +35,29 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        // validation errors
+
+        $rules = [
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required'
+        ];
+        try {
+        // execute validator
+        $validator = \Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return [
+                'created' => false,
+                'errors' => $validator->errors()->all()
+            ];
+        }
+
         User::create($request->all());
         return['created'=> true];
+        } catch(Exception $e) {
+            \Log::info('Error creating user: ',$e);
+            return \Response::json(['created' => false], 500);
+        }
     }
 
     /**
@@ -47,7 +68,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return User::find($id);
+        return User::find($user);
     }
 
     /**

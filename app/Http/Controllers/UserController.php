@@ -14,7 +14,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        // $users = User::all();
+        // $active = User::where('active', 1)->first();
+        // max = User::where('active', 1)->max('price');
+        $users = User::where('name', 'LIKE', '%ri%')
+               ->orderBy('name', 'desc')
+               ->take(10)
+               ->get();
+        // foreach ($users as $user) {
+        //     echo $user->name;
+        // }
+        return $users;
     }
 
     /**

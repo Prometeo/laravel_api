@@ -21,3 +21,5 @@ Route::apiResource('users', 'UserController');
 Route::apiResource('products','ProductController');
 Route::apiResource('transactions','TransactionController');
 Route::apiResource('Categories','CategoryController');
+// Route::get('students/{id}', 'ApiController@getStudent');
+// Route::post('students, 'ApiController@createStudent');
